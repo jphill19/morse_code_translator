@@ -5,7 +5,7 @@ from audio_encoding import play_morse_sound
 options = ['Encode to Morse Code', 'Decode from Morse Code', 'Play Morse Sound', 'Morse Sound Settings', 'Quit']
 
 PITCH = 1
-SPEED = 6
+SPEED = 1
 
 
 
