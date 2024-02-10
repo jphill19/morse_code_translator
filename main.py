@@ -5,7 +5,7 @@ from audio_encoding import play_morse_sound
 options = ['Encode to Morse Code', 'Decode from Morse Code', 'Play Morse Sound', 'Morse Sound Settings', 'Quit']
 
 PITCH = 1
-SPEED = 1
+SPEED = 6
 
 
 
@@ -21,6 +21,7 @@ def menu():
 def main():
     global SPEED
     global PITCH
+    encoded_text = None
     print(logo_art)
     
     input_options = None
@@ -48,11 +49,14 @@ def main():
                 print("2. New Message")
                 user_input = input("Enter 1 or 2: ")
                 if user_input == '1':
+                    print(f"Morse Code Output:\n{encoded_text}")
+                    print(f"Playing Morse Code Sound \n {SPEED} \n {PITCH}")
                     play_morse_sound(encoded_text, Speed=SPEED, Pitch=PITCH)
                 elif user_input == '2':
                     text_to_encode = input("What would you like to encode to Morse Code: ")
                     encoded_text = encode_to_morse(text_to_encode)
                     print(f"Morse Code Output:\n{encoded_text}")
+                    print(f"Playing Morse Code Sound \n {SPEED} \n {PITCH}")
                     play_morse_sound(encoded_text, Speed=SPEED, Pitch=PITCH)
                 else: 
                     print("Invalid input, returning to main menu")
@@ -61,6 +65,7 @@ def main():
                 text_to_encode = input("What would you like to encode to Morse Code: ")
                 encoded_text = encode_to_morse(text_to_encode)
                 print(f"Morse Code Output:\n{encoded_text}")
+                print(f"Playing Morse Code Sound \n {SPEED} \n {PITCH}")
                 play_morse_sound(encoded_text, Speed=SPEED, Pitch=PITCH)
 
         elif user_input == '4':
@@ -76,46 +81,46 @@ def main():
             
             sound_input = input("\nEnter 1, 2, 3, or 4: ")
             if sound_input == '1':
-                speed_setting= (input("Enter a new Speed number (1-10): "))
+                speed_setting= (input("Enter a new Speed number (1-5): "))
                 if speed_setting.isdigit() == False:
                     print("Invalid input, please try again")
                     continue
-                elif int(speed_setting) < 1 or int(speed_setting) > 10:
+                elif int(speed_setting) < 1 or int(speed_setting) > 5:
                     print("Invalid input, please try again")
                     continue
-                SPEED = int(sound_input)
+                SPEED = int(speed_setting)
                 print(f"New Speed: {SPEED}")
             
             elif sound_input == '2':
-                pitch_setting= (input("Enter a new Pitch number (1-10): "))
+                pitch_setting= (input("Enter a new Pitch number (1-5): "))
                 if pitch_setting.isdigit() == False:
                     print("Invalid input, please try again")
                     continue
-                elif int(pitch_setting) < 1 or int(pitch_setting) > 10:
+                elif int(pitch_setting) < 1 or int(pitch_setting) > 5:
                     print("Invalid input, please try again")
                     continue
-                PITCH = int(sound_input)
+                PITCH = int(pitch_setting)
                 print(f"New Pitch: {PITCH}")
             
             elif sound_input == '3':
-                speed_setting= (input("Enter a new Speed number (1-10): "))
+                speed_setting= (input("Enter a new Speed number (1-5): "))
                 if speed_setting.isdigit() == False:
                     print("Invalid input, please try again")
                     continue
-                elif int(speed_setting) < 1 or int(speed_setting) > 10:
+                elif int(speed_setting) < 1 or int(speed_setting) > 5:
                     print("Invalid input, please try again")
                     continue
-                SPEED = int(sound_input)
+                SPEED = int(speed_setting)
                 print(f"New Speed: {SPEED}")
                 
-                pitch_setting= (input("Enter a new Pitch number (1-10): "))
+                pitch_setting= (input("Enter a new Pitch number (1-5): "))
                 if pitch_setting.isdigit() == False:
                     print("Invalid input, please try again")
                     continue
-                elif int(pitch_setting) < 1 or int(pitch_setting) > 10:
+                elif int(pitch_setting) < 1 or int(pitch_setting) > 5:
                     print("Invalid input, please try again")
                     continue
-                PITCH = int(sound_input)
+                PITCH = int(pitch_setting)
                 print(f"New Pitch: {PITCH}")
 
             elif sound_input == '4':

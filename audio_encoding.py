@@ -28,19 +28,25 @@ def play_sound(signal, sampling_rate=44100):
     p.terminate()
 
 def play_morse_sound(morse_code: str, Speed:int=2, Pitch:int=2):
+
+    Speed =  (10 - int(Speed)) * 0.1
+
+    Pitch = (int(Pitch) * 0.1) * 500
+    print(Pitch)
+
     for m in morse_code:
         if m == '.':
-            frequency = 300 * Pitch
+            frequency = 300 + Pitch
             duration = 0.1 * Speed
             sine_wave = generate_sine_wave(frequency, duration)
             play_sound(sine_wave)
         elif m == '-':
-            frequency = 300 * Pitch
+            frequency = 300 + Pitch
             duration = 0.3 * Speed
             sine_wave = generate_sine_wave(frequency, duration)
             play_sound(sine_wave)
         elif m == ' ':
-            frequency = 0 * Pitch
+            frequency = 300 + Pitch
             duration = 0.1 * Speed
             sine_wave = generate_sine_wave(frequency, duration)
             play_sound(sine_wave)
